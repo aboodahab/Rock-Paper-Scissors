@@ -1,6 +1,6 @@
 from getpass import getpass
 import re
-print("Welcome In Rock_Paper_Scisors Game!")
+print("Welcome In Rock_Paper_Scissors Game!")
 firstChoose = getpass('First player choose: ')
 secondChoose = getpass('Second player choose: ')
 def check(first,second):
