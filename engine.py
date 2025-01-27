@@ -1,19 +1,31 @@
 from getpass import getpass
 import re
 print("Welcome In Rock_Paper_Scissors Game!")
+print("The Choices Are R=Rock P=Paper And S=Scisors ")
 firstChoose = getpass('First player choose: ')
 secondChoose = getpass('Second player choose: ')
 def check(first,second):
+ mode=""
  if first and second : 
-  checkTheResult(dataBase()[0],dataBase()[1])
- else:
-   print("sorry but you must add a game choice ")  
+  checkTheResults(dataBase()[0],dataBase()[1])
+  print(mode,"moder")
+ else: 
+  mode=False
+  if mode==False:
+   print("\n")
+   print("sorry but you must add a choice from the game") 
+   print("\n")
+   global firstChoose,secondChoose
+   firstChoose = getpass('First player choose: ')
+   secondChoose = getpass('Second player choose: ')
+   check(firstChoose,secondChoose)
+  #  recursion function 
 def dataBase():
  searchFirstInput=re.search("^r|s|p",firstChoose,re.I)
  searchSecondInput=re.search("^r|s|p",secondChoose,re.I)
  return searchFirstInput,searchSecondInput
 
-def checkTheResult(first,second):
+def checkTheResults(first,second):
  firstResult=first.group().lower()
  secondResult=second.group().lower()
  print("The First Player Choosed {} \nThe Second Player Choosed {}".format(firstResult,secondResult))
